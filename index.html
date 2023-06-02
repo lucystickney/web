@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Character Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+        
+        position: relative;
+        width: 1404px;
+        height: 1778px;
+        transform: scale(0.9);
+        background: #86BBD8;   
+    }
+    h1 {
+        position: absolute;
+        width: 424px;
+        height: 45px;
+        left: calc(50% - 424px/2 - 112px);
+        top: 189px;
+
+        font-family: 'Ropa Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 35px;
+        line-height: 43px;
+        color: #2F4858;
+
+    }
+    input {
+        font-family: 'Sometype Mono', 'Courier New';
+        padding: 10px;
+        color: #2F4858;
+        
+        border-style: hidden;
+    }
+    
+    p {
+        position: absolute;
+        width: 290px;
+        height: 161px;
+        left: calc(50% - 343px/2 + 210px);
+        top: 180px;
+
+        font-family: 'Sometype Mono', 'Courier New';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 23px;
+        text-align: right;
+        padding: 10px;
+
+        color: #2F4858;
+
+
+    }
+    button {
+        border-style: hidden;
+        border-radius: 50%;
+
+    }
+    .first {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 226px;
+        height: 37px;
+        left: calc(50% - 226px/2 - 67px);
+        top: 391px;
+
+        background: #DABECA;
+        border-radius: 20px;
+
+    }
+    .last {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 249px;
+        height: 37px;
+        left: calc(50% - 249px/2 + 183.5px);
+        top: 391px;
+
+        background: #DABECA;
+        border-radius: 20px;
+    }
+   
+    .age {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 175px;
+        height: 37px;
+        left: calc(50% - 175px/2 + 220.5px);
+        top: 498px;
+
+        background: #DABECA;
+        border-radius: 20px;
+    }
+    .nat {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 175px;
+        height: 38px;
+        left: calc(50% - 175px/2 + 220.5px);
+        top: 577px;
+
+        background: #DABECA;
+        border-radius: 20px;
+    }
+    .sex {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 175px;
+        height: 38px;
+        left: calc(50% - 175px/2 - 116.5px);
+        top: 577px;
+
+        background: #DABECA;
+        border-radius: 20px;
+    }
+    .weak1 {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 231px;
+        height: 38px;
+        left: calc(50% - 231px/2 - 64.5px);
+        top: 990px;
+
+        background: #DABECA;
+        border-radius: 20px;
+
+    }
+    .strength1 {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 231px;
+        height: 38px;
+        left: calc(50% - 231px/2 - 64.5px);
+        top: 908px;
+
+        background: #DABECA;
+        border-radius: 20px;
+    } 
+    .weak2 {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 230px;
+        height: 38px;
+        left: calc(50% - 230px/2 + 194px);
+        top: 990px;
+
+        background: #DABECA;
+        border-radius: 20px;
+
+
+    }
+    .strength2 {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 230px;
+        height: 38px;
+        left: calc(50% - 230px/2 + 194px);
+        top: 908px;
+
+        background: #DABECA;
+        border-radius: 20px;
+    } 
+    .gender {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 175px;
+        height: 37px;
+        left: calc(50% - 175px/2 - 115.5px);
+        top: 498px;
+
+        background: #DABECA;
+        border-radius: 20px;
+    }
+    .type {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 197px;
+        height: 37px;
+        left: calc(50% - 197px/2 - 29.5px);
+        top: 692px;
+
+        background: #DABECA;
+        border-radius: 20px;
+    }
+    .generate {
+        box-sizing: border-box;
+        font-family: 'Ropa Sans';
+        font-size: 30px;
+        position: absolute;
+        width: 241px;
+        height: 70px;
+        left: calc(50% - 241px/2 - 200.5px);
+        top: 269px;
+        color: #2F4858;
+
+        background: #DABECA;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 16px;
+
+    }
+    .nameBox {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 643px;
+        height: 67px;
+        left: calc(50% - 643px/2 + 0.5px);
+        top: 376px;
+
+        background: #A88FAC;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 16px;
+    }
+    .fourBox {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 643px;
+        height: 162px;
+        left: calc(50% - 643px/2 + 0.5px);
+        top: 474px;
+
+        background: #A88FAC;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 16px;
+    }
+    .typeBox{
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 643px;
+        height: 173px;
+        left: calc(50% - 643px/2 + 0.5px);
+        top: 674px;
+
+        background: #A88FAC;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 16px;
+    }
+    .strenbox {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 644px;
+        height: 162px;
+        left: calc(50% - 644px/2);
+        top: 885px;
+
+        background: #A88FAC;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 16px;
+    }
+    
+    
+    .lineOne {
+        position: absolute;
+        width: 635.27px;
+        height: 0px;
+        left: calc(50% - 643.27px/2 + 0.21px);
+        top: 555.23px;
+
+        border: 4px solid #DABECA;
+        transform: matrix(1, 0, 0, 1, 0, 0);
+
+    }
+    .lineTwo {
+        position: absolute;
+        width: 154px;
+        height: 0px;
+        left: calc(50% - 161px/2 + -10.5px);
+        top: 551px;
+
+        border: 4px solid #DABECA;
+        transform: rotate(90deg);
+    }
+    .lineThree {
+        position: absolute;
+        width: 636px;
+        height: 0px;
+        left: calc(50% - 644px/2);
+        top: 967px;
+
+        border: 4px solid #DABECA;
+    }
+    
+
+    .toggleNameL {
+        position: absolute;
+        width: 20px;
+        height: 23px;
+        left: calc(50% - 20px/2 + 292px);
+        top: 398px;
+
+        background: #FFD0D0;
+    }
+    button.on {
+        background: #EC8787;
+    }
+    
+    .toggleNameF {
+        position: absolute;
+        width: 19px;
+        height: 23px;
+        left: calc(50% - 19px/2 + 30.5px);
+        top: 398px;
+
+        background: #FFD0D0;
+    }
+    .toggleNat {
+        position: absolute;
+        width: 20px;
+        height: 23px;
+        left: calc(50% - 20px/2 + 292px);
+        top: 585px;
+
+        background: #FFD0D0;
+    }
+    .toggleGender {
+        position: absolute;
+        width: 20px;
+        height: 23px;
+        left: calc(50% - 20px/2 - 45px);
+        top: 506px;
+        border-radius: 50%;
+        background: #FFD0D0;
+        
+        
+    }
+    .toggleSex {
+        position: absolute;
+        width: 20px;
+        height: 23px;
+        left: calc(50% - 20px/2 - 45px);
+        top: 585px;
+
+        background: #FFD0D0;
+        
+    }
+    .toggleWeak1 {
+        position: absolute;
+        width: 19px;
+        height: 22px;
+        left: calc(50% - 19px/2 + 34.5px);
+        top: 916px;
+
+        background: #FFD0D0;
+        
+    }
+    .toggleStrong1 {
+        position: absolute;
+        width: 19px;
+        height: 22px;
+        left: calc(50% - 19px/2 + 34.5px);
+        top: 998px;
+
+        background: #FFD0D0;
+    }
+    .toggleWeak2 {
+        position: absolute;
+        width: 20px;
+        height: 22px;
+        left: calc(50% - 20px/2 + 293px);
+        top: 998px;
+
+        background: #FFD0D0;
+    }
+    .toggleStrong2 {
+        position: absolute;
+        width: 20px;
+        height: 22px;
+        left: calc(50% - 20px/2 + 293px);
+        top: 916px;
+
+        background: #FFD0D0;
+    }
+    .toggleType {
+        position: absolute;
+        width: 19px;
+        height: 23px;
+        left: calc(50% - 19px/2 + 51.5px);
+        top: 699px;
+
+        background: #FFD0D0;
+    }
+    .toggleAge {
+        position: absolute;
+        width: 20px;
+        height: 23px;
+        left: calc(50% - 20px/2 + 292px);
+        top: 506px;
+
+        background: #FFD0D0;
+    }
+    .fullName {
+        position: absolute;
+        width: 124px;
+        height: 20px;
+        left: calc(50% - 124px/2 - 247px);
+        top: 376px;
+
+        
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+        display: flex;
+        align-items: center;
+
+        color: #FFFFFF;
+
+    }
+    .genderTag {
+        position: absolute;
+        width: 92px;
+        height: 21px;
+        left: calc(50% - 92px/2 - 269px);
+        top: 482px;
+
+        
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+
+        color: #FFFFFF;
+    }
+    .sexTag {
+        position: absolute;
+        width: 118px;
+        height: 21px;
+        left: calc(50% - 118px/2 - 283px);
+        top: 563px;
+
+       
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+
+        color: #FFFFFF;
+
+
+    }
+    .ageTag {
+        position: absolute;
+        width: 67px;
+        height: 21px;
+        left: calc(50% - 67px/2 + 78.5px);
+        top: 483px;
+
+        
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+
+        color: #FFFFFF;
+    }
+    .natTag {
+        position: absolute;
+        width: 142px;
+        height: 21px;
+        left: calc(50% - 142px/2 + 44px);
+        top: 564px;
+
+        
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+
+        color: #FFFFFF;
+
+    }
+    .proTag {
+        position: absolute;
+        width: 105px;
+        height: 23px;
+        left: 934px;
+        top: 478px;
+
+        
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 23px;
+        /* identical to box height */
+
+
+        color: #FFFFFF;
+    }
+    .typeTag {
+        position: absolute;
+        width: 230px;
+        height: 21px;
+        left: calc(50% - 230px/2 - 263px);
+        top: 676px;
+
+        
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+
+        color: #FFFFFF;
+    }
+    .strengthTag {
+        position: absolute;
+        width: 129px;
+        height: 21px;
+        left: calc(50% - 129px/2 - 265.5px);
+        top: 892px;
+
+        
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+
+        color: #FFFFFF;
+    }
+    .weakTag {
+        position: absolute;
+        width: 138px;
+        height: 21px;
+        left: calc(50% - 138px/2 - 270px);
+        top: 974px;
+
+        
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+
+        color: #FFFFFF;
+    }
+    .des {
+        position: absolute;
+        width: 300px;
+        height: 100px;
+        left: calc(50% - 221px/2 - 19.5px);
+        top: 725px;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+        text-align: left;
+        color: #FFFFFF;
+
+    }
+
+
+  </style>
+</head>
+<body>
+    <h1>Character Profile Generator</h1>
+    <p>
+        Looking for some character inspiration? Click generate to create 
+        a random character profile. If you like a detail, click the pink 
+        circle to lock it in. If you already have some ideas for your 
+        character, type them and then lock them in. 
+    </p>
+
+    <!-- Page elements -->
+    <div class="nameBox"></div>
+    <div class="fourBox"></div>
+    <div class="typeBox"></div>
+    <div class="strenbox"></div>
+    
+    <div class="lineOne"></div>
+    <div class="lineTwo"></div>
+    <div class="lineThree"></div>
+    
+
+   
+    <div id = "buttons">
+     <!-- Button labels -->
+        <p class="fullName">Full Name:</p>
+        <p class="genderTag">Gender:</p>
+        <p class="sexTag">Sexuality:</p>
+        <p class="ageTag">Age:</p>
+        <p class="natTag">Nationality:</p>
+        <p class="typeTag">Personality Type:</p>
+        <p class="strengthTag">Strengths:</p>
+        <p class="weakTag">Weaknessess:</p>
+
+        <!-- Buttons -->
+        <input type="text" id="firstName" class="first" placeholder="First Name">
+        <input type="text" id="LastName" class="last" placeholder="Last Name">
+        <input type="text" id="age" class="age">
+        <input type="text" id="Nationality" class="nat">
+        <input type="text" id="sexuality" class="sex">
+        <input type="text" id="weak1" class="weak1">
+        <input type="text" id="strength1" class="strength1">
+        <input type="text" id="weak2" class="weak2">
+        <input type="text" id="strength2" class="strength2">
+        <input type="text" id="gender" class="gender">
+        <p id="description" class="des"></p>
+        <input type="text" id="perType" class="type">
+        
+
+        <!-- Toggle Buttons -->
+        <button id="toggleNameL" class="toggleNameL"></button>
+        <button id="toggleNameF" class="toggleNameF"></button>
+        <button id="toggleNat" class="toggleNat"></button>
+        <button id="toggleGender" class="toggleGender"></button>
+        <button id="toggleSex" class="toggleSex"></button>
+        <button id="toggleWeak1" class="toggleWeak1"></button>
+        <button id="toggleStrong1" class="toggleStrong1"></button>
+        <button id="toggleWeak2" class="toggleWeak2"></button>
+        <button id="toggleStrong2" class="toggleStrong2"></button>
+        <button id="toggleType" class="toggleType"></button>
+        <button id="toggleAge" class="toggleAge"></button>
+
+    </div>  
+    
+    <button onclick="generateRandom()" class="generate">Generate</button>
+
+    <script>
+        //add lock buttons for each input
+        //create a function that toggles the button
+        //instead of checking if it is blank, check if locked
+
+
+        /*
+        Script for the toggle buttons. Each has a variable that is on or off
+        */
+
+        // First name
+        const toggleNameF = document.getElementById("toggleNameF");
+        nameFIsOn = false;
+
+        // Last name
+        const toggleNameL = document.getElementById("toggleNameL");
+        nameLIsOn = false;
+
+        // Nationality
+        const toggleNat = document.getElementById("toggleNat");
+        natIsOn = false;
+
+        // gender
+        const toggleGender = document.getElementById("toggleGender");
+        genderIsOn = false;
+
+        // sex
+        const toggleSex = document.getElementById("toggleSex");
+        sexIsOn = false;
+
+        //weaknesses
+        const toggleWeak1 = document.getElementById("toggleWeak1");
+        weak1IsOn = false;
+
+        const toggleWeak2 = document.getElementById("toggleWeak2");
+        weak2IsOn = false;
+
+        //strengths
+        const toggleStrong1 = document.getElementById("toggleStrong1");
+        strong1IsOn = false;
+
+        const toggleStrong2 = document.getElementById("toggleStrong2");
+        strong2IsOn = false;
+
+        //personality type
+        const toggleType = document.getElementById("toggleType");
+        TypeIsOn = false;
+
+        // age
+        const toggleAge = document.getElementById("toggleAge");
+        AgeIsOn = false;
+
+
+        /*
+        Toggles the button when it is pressed 
+        */
+
+        // age 
+        toggleAge.addEventListener("click", function() {
+            AgeIsOn = !AgeIsOn; // Toggle the value of isOn
+            if (AgeIsOn) {
+                toggleAge.value = "On";
+                toggleAge.classList.add("on");
+            // Additional actions when button is turned on
+            } else {
+                toggleAge.value = "Off";
+                toggleAge.classList.remove("on");
+            // Additional actions when button is turned off
+            }
+        });
+
+        // first name
+        toggleNameF.addEventListener("click", function() {
+            nameFIsOn = !nameFIsOn; // Toggle the value of isOn
+            if (nameFIsOn) {
+                toggleNameF.value = "On";
+                toggleNameF.classList.add("on");
+            // Additional actions when button is turned on
+            } else {
+                toggleNameF.value = "Off";
+                toggleNameF.classList.remove("on");
+            // Additional actions when button is turned off
+            }
+        });
+
+        // last name
+        toggleNameL.addEventListener("click", function() {
+            nameLIsOn = !nameLIsOn; // Toggle the value of isOn
+            if (nameLIsOn) {
+                toggleNameL.value = "On";
+                toggleNameL.classList.add("on");
+            // Additional actions when button is turned on
+            } else {
+                toggleNameL.value = "Off";
+                toggleNameL.classList.remove("on");
+            // Additional actions when button is turned off
+            }
+        });
+
+        //nationality
+        toggleNat.addEventListener("click", function() {
+            natIsOn = !natIsOn; // Toggle the value of isOn
+            if (natIsOn) {
+                toggleNat.value = "On";
+                toggleNat.classList.add("on");
+            // Additional actions when button is turned on
+            } else {
+                toggleNat.value = "Off";
+                toggleNat.classList.remove("on");
+            // Additional actions when button is turned off
+            }
+        });
+
+        // gender 
+        toggleGender.addEventListener("click", function() {
+            genderIsOn = !genderIsOn; // Toggle the value of isOn
+            if (genderIsOn) {
+                toggleGender.value = "On";
+                toggleGender.classList.add("on");
+            // Additional actions when button is turned on
+            } else {
+                toggleGender.value = "Off";
+                toggleGender.classList.remove("on");
+            // Additional actions when button is turned off
+            }
+        });
+
+        // sexuality 
+        toggleSex.addEventListener("click", function() {
+            sexIsOn = !sexIsOn; // Toggle the value of isOn
+            if (sexIsOn) {
+                toggleSex.value = "On";
+                toggleSex.classList.add("on");
+            // Additional actions when button is turned on
+            } else {
+                toggleSex.value = "Off";
+                toggleSex.classList.remove("on");
+            // Additional actions when button is turned off
+            }
+        });
+
+        // weaknesses
+        toggleWeak1.addEventListener("click", function() {
+            weak1IsOn = !weak1IsOn; // Toggle the value of isOn
+            if (weak1IsOn) {
+                toggleWeak1.value = "On";
+                toggleWeak1.classList.add("on");
+            // Additional actions when button is turned on
+            } else {
+                toggleWeak1.value = "Off";
+                toggleWeak1.classList.remove("on");
+            // Additional actions when button is turned off
+            }
+        });
+        toggleWeak2.addEventListener("click", function() {
+            weak2IsOn = !weak2IsOn; // Toggle the value of isOn
+            if (weak2IsOn) {
+                toggleWeak2.value = "On";
+                toggleWeak2.classList.add("on");
+            // Additional actions when button is turned on
+            } else {
+                toggleWeak2.value = "Off";
+                toggleWeak2.classList.remove("on");
+            // Additional actions when button is turned off
+            }
+        });
+
+
+        //strengths
+        toggleStrong1.addEventListener("click", function() {
+            strong1IsOn = !strong1IsOn; // Toggle the value of isOn
+            if (strong1IsOn) {
+                toggleStrong1.value = "On";
+                toggleStrong1.classList.add("on");
+            // Additional actions when button is turned on
+            } else {
+                toggleStrong1.value = "Off";
+                toggleStrong1.classList.remove("on");
+            // Additional actions when button is turned off
+            }
+        });
+
+        toggleStrong2.addEventListener("click", function() {
+            strong2IsOn = !strong2IsOn; // Toggle the value of isOn
+            if (strong2IsOn) {
+                toggleStrong2.value = "On";
+                toggleStrong2.classList.add("on");
+            // Additional actions when button is turned on
+            } else {
+                toggleStrong2.value = "Off";
+                toggleStrong2.classList.remove("on");
+            // Additional actions when button is turned off
+            }
+        });
+
+        // personality type
+        toggleType.addEventListener("click", function() {
+            TypeIsOn = !TypeIsOn; // Toggle the value of isOn
+            if (TypeIsOn) {
+                toggleType.value = "On";
+                toggleType.classList.add("on");
+            // Additional actions when button is turned on
+            } else {
+                toggleType.value = "Off";
+                toggleType.classList.remove("on");
+            // Additional actions when button is turned off
+            }
+        });
+
+        // function generates a random character profile
+        function generateRandom() {
+            
+            var gender = document.getElementById("gender");
+            
+            if (toggleGender.value != "On") {
+                console.log(gender.value);
+                gender.value = randomGender();
+                
+            }
+            var allNames =  ["Noah", "Liam", "Elijah", "Lucas", "Leo", "Leo", "Mateo", 
+            "Ethan", "James", "Luca", "Theo", "Jack", "Mason", "Jayden", "Luke", 
+            "Benjamin", "Michael", "Logan", "William", "Daniel", "Ezra", "Henry", 
+            "Levi", "Carter", "Sebastian", "Waylon", "Elias", "Hudson", "Jackson", 
+            "Julian", "Kai", "Maverick", "Gabriel", "Samuel", "Thomas", "Alexander", 
+            "Muhammad", "David", "Asher", "Nathan", "Adam", "Josiah", "John", "Grayson", "Wyatt"];
+            
+            var nameF = document.getElementById("firstName");
+            console.log(toggleNameF.value);
+            if (toggleNameF.value != "On") {
+                if (gender.value === "Woman") {
+                    nameF.value = randomFirstW();
+                }
+                else if (gender.value === "Man") {
+                    nameF.value = randomFirstM();
+                }
+                else if (gender.valuer === "Nonbinary") {
+                    nameF.value = randomFirstN();
+                }
+                else {
+                    var randomName = Math.floor(Math.random() * allNames.length);
+                    nameF.value = allNames[randomName];
+                }
+            }
+
+            var nameL = document.getElementById("LastName");
+            console.log(name.value);
+            if (toggleNameL.value != "On"){
+                nameL.value = randomLast();
+                console.log(nameL.value);
+            }
+
+            var age = document.getElementById("age");
+            if (toggleAge.value != "On"){
+                age.value = Math.floor(Math.random() * 88 + 12);
+            }
+            console.log(age);
+
+            var sex = document.getElementById("sexuality");
+            if (toggleSex.value != "On"){
+                sex.value = randomSex();
+            }
+            console.log(sex);
+            var nat = document.getElementById("Nationality");
+            if (toggleNat.value != "On"){
+                nat.value = randomNat();
+            }
+            
+            console.log(nat);
+
+            var weak1 = document.getElementById("weak1");
+            if (toggleWeak1.value != "On"){
+                weak1.value = randomweak1();
+            }
+            var weak2 = document.getElementById("weak2");
+            if (toggleWeak2.value != "On"){
+                weak2.value = randomweak2();
+            }
+            var strong1 = document.getElementById("strength1");
+            if (toggleStrong1.value != "On"){
+                strong1.value = randomstrong1();
+            }
+            var strong2 = document.getElementById("strength2");
+            if (toggleStrong2.value != "On"){
+                strong2.value = randomstrong2();
+            }
+
+
+            var type = document.getElementById("perType");
+            if (toggleType.value != "On"){
+                type.value = randomType();
+            }
+            console.log("type");
+            console.log(type.value);
+            
+            var description = document.getElementById("description");
+            switch (type.value) {
+                case "INTJ":
+                    description.textContent = 
+                    "Architect: Imaginative and strategic thinkers, with a plan for everything.";
+                    break;
+                case "INTP":
+                    description.textContent = 
+                    "Logician: Innovative inventors with an unquenchable thirst for knowledge.";
+                    break;
+                case "ENTJ":
+                    description.textContent = 
+                    "Commander: Bold, imaginative and strong-willed leaders.";
+                    break;
+                case "ENTP":
+                    description.textContent = 
+                    "Debater: Smart, curious, loves an intellectual challenge.";
+                    break;
+                case "INFJ":
+                    description.textContent = 
+                    "Advocate: Quiet, mystical, inspiring idealists.";
+                    break;
+                case "INFP":
+                    description.textContent = 
+                    "Mediator: Kind and altruitic, poetic, and eager to help a good cause.";
+                    break;
+                case "ENFJ":
+                    description.textContent = 
+                    "Protagonist: Charasmatic, inspiring, and leaders that are able to mesmerise listeners.";
+                    break;
+                case "ENFP":
+                    description.textContent = 
+                    "Campaigner: Creative, enthusiastic, social, and free-spirited. Always smiling.";
+                    break;
+                case "ISTJ":
+                    description.textContent = 
+                    "Logistician: Practical, reliable, and fact-minded.";
+                    break;
+                case  "ISFJ":
+                    description.textContent = 
+                    "Defender: Dedicated protectors, always defending the ones they care about.";
+                    break;
+                case "ESTJ":
+                    description.textContent = 
+                    "Executive: Great at managing things, excellent administrators.";
+                    break;
+                case "ESFJ":
+                    description.textContent = 
+                    "Consul: Extremely caring, popular, and social. Always eager to help others.";
+                    break;
+                case "ISTP":
+                    description.textContent = 
+                    "Virtuoso: Bold but practical experimenters, masters of many tools.";
+                    break;
+                case "ISFP":
+                    description.textContent = 
+                    "Adventurer: Charming and flexible and artistic. Always wants to explore new things.";
+                    break;
+                case "ESTP":
+                    description.textContent = 
+                    "Entrepreneur: Very perceptive, smart, and energetic. Loves to live on the edge.";
+                    break;
+                case "ESFP":
+                    description.textContent = 
+                    "Entertainer: Energetic and spontaneous. Enthusiastic about life.";
+                    break;
+            }
+
+        }
+        function randomType() {
+            var types = ["INTJ", "INTP", "ENTJ", "ENTP", "INFJ", "INFP", 
+            "ENFJ", "ENFP", "ISTJ", "ISFJ", "ESTJ", "ESFJ", "ISTP", "ISFP", 
+            "ESTP", "ESFP"];
+            var randomType = Math.floor(Math.random() * types.length);
+            var type = types[randomType];
+            
+            return type;
+        }
+        
+        function randomGender() {
+
+            var genders = ["Man", "Woman", "NonBinary"];
+            var randomGender = Math.floor(Math.random() * genders.length);
+            var gender = genders[randomGender];
+            console.log(gender);
+            return gender;
+        }
+
+        function randomFirstW() {
+            var womanNames = ["Olivia", "Emma", "Isabella", "Ava", "Amelia", "Sophia", 
+            "Lily", "Luna", "Mia", "Harper", "Aurora", "Aria", "Ellie", "Grace",
+            "Evelyn", "Ella", "Sofia", "Abigail", "Elena", "Nova", "Maya", "Layla", 
+            "Victoria", "Chloe", "Gianna", "Ivy", "Willow", "Athena", "Hazel", "Isla", 
+            "Emily", "Zoey", "Elizabeth", "Avery", "Scarlett", "Nora", "Delilah", 
+            "Gabriella", "Harper", "Emilia", "Hannah", "Madison", "Mila", "Penelope", 
+            "Aaliyah", "Paisley", "Zoe", "Rowan", "Avery", "Sage", "Phoenix", "Emery", 
+            "Reese", "Riley", "Quinn", "Finley", "Parker", "Jules", "Sawyer", "Morgan", 
+            "River", "Harley", "Ellis", "Blair", "Indigo", "Dakota", "Arden"]; 
+
+           
+            var randomNumber = Math.random();
+            var randomName = Math.floor(Math.random() * womanNames.length);
+            
+            var name = womanNames[randomName];
+        
+            return name;
+        }
+        function randomFirstM() {
+
+            var manNames = ["Noah", "Liam", "Elijah", "Lucas", "Leo", "Leo", "Mateo", 
+            "Ethan", "James", "Luca", "Theo", "Jack", "Mason", "Jayden", "Luke", 
+            "Benjamin", "Michael", "Logan", "William", "Daniel", "Ezra", "Henry", 
+            "Levi", "Carter", "Sebastian", "Waylon", "Elias", "Hudson", "Jackson", 
+            "Julian", "Kai", "Maverick", "Gabriel", "Samuel", "Thomas", "Alexander", 
+            "Muhammad", "David", "Asher", "Nathan", "Adam", "Josiah", "John", "Grayson", 
+            "Wyatt", "Rowan", "Avery", "Sage", "Phoenix", "Emery", "Reese", "Riley", 
+            "Quinn", "Finley", "Parker", "Jules", "Sawyer", "Morgan", "River", "Harley", 
+            "Ellis", "Blair", "Indigo", "Dakota", "Arden"];
+
+            
+            var randomNumber = Math.random();
+            var randomName = Math.floor(Math.random() * manNames.length);
+            var name = manNames[randomName];
+           
+            return name;
+
+        }
+
+        function randomFirstN() {
+            var nbNames = ["Rowan", "Avery", "Sage", "Phoenix", "Emery", "Reese", 
+            "Riley", "Quinn", "Finley", "Parker", "Jules", "Sawyer", "Morgan", 
+            "River", "Harley", "Ellis", "Blair", "Indigo", "Dakota", "Arden"];
+            var randomName = Math.floor(Math.random() * nbNames.length);
+            var nbName = nbNames[randomName];
+            return nbName;
+
+        }
+
+        function randomLast() {
+            var lastNames = ["Stickney", "Adler", "Blair", "Cameron", "Darcy", 
+            "Ellis", "Frost", "Gray", "Harper", "Jensen", "Keller", "Lennon", 
+            "Morgan", "Parker", "Quinn", "Reed", "Sawyer", "Taylor", "Valentine", 
+            "Wilder", "York", "Fletcher", "Everett", "Montgomery", "Wolfe", "Bishop", 
+            "Harrison", "Bennett", "Stone", "Vaughn", "Sinclair", "Drake", "Hartley", 
+            "Maxwell", "Delgado", "Sullivan", "Callahan", "Donovan", "Pierce", 
+            "Hawthorne", "Gallagher"];
+            var randomName = Math.floor(Math.random() * lastNames.length);
+            var lastName = lastNames[randomName];
+            return lastName;
+
+        }
+        function randomNat() {
+            nationalities = ["Afghan", "Albanian", "Algerian", "American", "Andorran", "Angolan", "Argentine", "Armenian", "Australian", "Austrian"];
+            var random = Math.floor(Math.random() * nationalities.length);
+            nat = nationalities[random];
+            return nat;
+
+        }
+        function randomSex() {
+            sexualities = ["Heterosexual", "Homosexual", "Asexual", "Aromantic", "Bisexual", "Pansexual"];
+            var random = Math.floor(Math.random() * sexualities.length);
+            var sex = sexualities[random];
+            return sex;
+
+        }
+        function randomType() {
+            personalityType = ["INTJ", "ENTJ", "INTP", "ENTP", "INFP", "INFJ"];
+            var random = Math.floor(Math.random() * personalityType.length);
+            var type = personalityType[random];
+            return type;
+
+        }
+        function randomweak1() {
+            var weaknesses = ["Fear of the water", "Fear of spiders", "Arrogant", "Impulsive", 
+            "Procrastination", "Compulsive liar", "Can't be vulnerable", "Naivety", 
+            "Imposter syndrome", "Can't take risks", "No support system", "Substance abuse", 
+            "Fear of the dark", "Cursed family line"];
+            var random = Math.floor(Math.random() * weaknesses.length);
+            var weak = weaknesses[random];
+            return weak;
+        }
+        function randomweak2() {
+            var weaknesses = ["Trust issues", "Impulsiveness", "Lack of assertiveness", 
+            "stubbornness", "Fear of failure", "Recklessness", "Emotional sensitivity", "Indecisiveness",
+            "Perfectionism", "Lack of Empathy", "Short temper", "Procrastination", "Jealousy", "Overly critical", "Lack of discipline"];
+            var random = Math.floor(Math.random() * weaknesses.length);
+            var weak = weaknesses[random];
+            return weak;
+        }
+        function randomstrong1() {
+            var strengths = ["Calm under pressure", "intelligent", "Optimistic", "Empathetic", 
+            "Brave", "Strong leader", "Kindness", "Creative", "Great intuition", 
+            "Knows many languages", "Great sense of humor", "Healing abilities", "Shape-shifting"];
+            var random = Math.floor(Math.random() * strengths.length);
+            var strong = strengths[random];
+            return strong;
+            
+        }
+        function randomstrong2() {
+            var strengths = ["Calm under pressure", "intelligent", "Optimistic", "Empathetic", 
+            "Brave", "Strong Leader", "Kindness", "Creative", "Great Intuition"];
+            var random = Math.floor(Math.random() * strengths.length);
+            var strong = strengths[random];
+            return strong;
+            
+        }
+        
+        function toggleButton() {
+            isOn = !isOn; // Toggle the value of isOn
+
+            if (isOn) {
+                toggleButton.value = "On";
+            // Additional actions when button is turned on
+            } else {
+                toggleButton.value = "Off";
+            // Additional actions when button is turned off
+            }
+        }
+        
+    </script>
+
+</body>
+</html>
